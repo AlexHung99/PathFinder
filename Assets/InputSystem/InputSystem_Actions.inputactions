@@ -103,6 +103,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "LeftClickActack",
+                    "type": "Button",
+                    "id": "a9e48111-916a-479e-92e4-5514feb828b9",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -497,7 +506,7 @@
                     "path": "<Mouse>/rightButton",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": ";Keyboard&Mouse",
                     "action": "RightClickMove",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -510,6 +519,17 @@
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
                     "action": "OpenBag",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c3fcdab7-915e-41b1-890d-d957c6c2bf0d",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "LeftClickActack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

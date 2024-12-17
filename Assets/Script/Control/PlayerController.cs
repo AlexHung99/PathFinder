@@ -1,3 +1,6 @@
+using PathFinder.Combat;
+using PathFinder.Movement;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,7 +22,7 @@ public class PlayerController : MonoBehaviour
 
     private InputAction moveAction;
     private InputAction rightClickMoveAction;
-    private InputAction jumpAction;
+    //private InputAction jumpAction;
 
     private Vector2 inputVector;
 
@@ -52,16 +55,16 @@ public class PlayerController : MonoBehaviour
         var playerActionMap = inputActions.FindActionMap("Player");
         moveAction = playerActionMap.FindAction("Move");
         rightClickMoveAction = playerActionMap.FindAction("RightClickMove");
-        jumpAction = playerActionMap.FindAction("Jump");
+        //jumpAction = playerActionMap.FindAction("Jump");
 
         moveAction.Enable();
         rightClickMoveAction.Enable();
-        jumpAction.Enable();
+        //jumpAction.Enable();
 
         moveAction.performed += OnMove;
         moveAction.canceled += OnMoveCanceled;
         rightClickMoveAction.performed += OnRightClickMove;
-        jumpAction.performed += OnJump;
+        //jumpAction.performed += OnJump;
     }
 
     private void OnDestroy()
@@ -69,7 +72,7 @@ public class PlayerController : MonoBehaviour
         moveAction.performed -= OnMove;
         moveAction.canceled -= OnMoveCanceled;
         rightClickMoveAction.performed -= OnRightClickMove;
-        jumpAction.performed -= OnJump;
+        //jumpAction.performed -= OnJump;
     }
 
     private void OnMove(InputAction.CallbackContext context)
@@ -104,6 +107,22 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void MoveToCursor()
+    {
+        Ray ray = GetMouseRay();
+        RaycastHit hit;
+        bool hasHit = Physics.Raycast(ray, out hit);
+        if (hasHit)
+        {
+            GetComponent<Mover>().MoveTo(hit.point);
+        }
+    }
+
+    private static Ray GetMouseRay()
+    {
+        return Camera.main.ScreenPointToRay(Input.mousePosition);
+    }
+
     public void OnJump(InputAction.CallbackContext context)
     {
         // 跳躍邏輯
@@ -122,22 +141,24 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
-        
+        InteracWithMovement();
+        InteracWithCombat();
 
-        // 處理 WSAD 移動
-        if (inputVector != Vector2.zero)
-        {
-            Vector3 move = ConvertInputToCameraDirection(inputVector);
-            agent.SetDestination(transform.position + move);
-            ani.SetTrigger(isWaik);
-        }
+    }
 
-        // 檢查是否到達目的地
-        if (!agent.pathPending && agent.remainingDistance <= agent.stoppingDistance)
+    private void InteracWithCombat() //戰鬥互動
+    {
+        // 檢查滑鼠點擊
+        RaycastHit[] hits = Physics.RaycastAll(GetMouseRay());
+        foreach(RaycastHit hit in hits)
         {
-            if (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
+            CombatTarget target =  hit.transform.GetComponent<CombatTarget>();
+            if(target == null) continue;
+
+            // 檢查是否點擊到敵人 (CombatTarget) 滑鼠左鍵攻擊
+            if (Input.GetMouseButtonDown(0))
             {
-                ani.ResetTrigger(isWaik); // 重置動畫狀態
+                GetComponent<Fighter>().Attact(target);
             }
         }
 
@@ -146,18 +167,6 @@ public class PlayerController : MonoBehaviour
         {
             StartCoroutine(HandleOffMeshLink());
         }
-
-        // 逐漸降低 HP
-        //if (characterInfoData.characterHealth > 1)
-        //{
-        //    characterInfoData.characterHealth -= 1; // 每秒降低
-        //    if (characterInfoData.characterHealth < 1)
-        //    {
-        //        characterInfoData.characterHealth = 1; // 確保不低於 1
-        //    }
-        //    Debug.Log("HP: " + characterInfoData.characterHealth);
-        //}
-        //Debug.Log("HP: " + characterInfoData.characterHealth);
 
 
         // 檢查按鍵輸入
@@ -178,6 +187,30 @@ public class PlayerController : MonoBehaviour
             SelectSpell(buffPrefab);
         }
     }
+
+    private void InteracWithMovement() //移動互動
+    {
+
+
+        // 處理 WSAD 移動
+        if (inputVector != Vector2.zero)
+        {
+            Vector3 move = ConvertInputToCameraDirection(inputVector);
+            agent.SetDestination(transform.position + move);
+            ani.SetTrigger(isWaik);
+        }
+
+        // 檢查是否到達目的地
+        if (!agent.pathPending && agent.remainingDistance <= agent.stoppingDistance)
+        {
+            if (!agent.hasPath || agent.velocity.sqrMagnitude == 0f)
+            {
+                ani.ResetTrigger(isWaik); // 重置動畫狀態
+            }
+        }
+    }
+
+
 
     #region 法術相關方法
     private void SelectSpell(GameObject spellPrefab)

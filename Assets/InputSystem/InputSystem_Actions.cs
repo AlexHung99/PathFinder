@@ -125,6 +125,15 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""LeftClickActack"",
+                    ""type"": ""Button"",
+                    ""id"": ""a9e48111-916a-479e-92e4-5514feb828b9"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -519,7 +528,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""path"": ""<Mouse>/rightButton"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": "";Keyboard&Mouse"",
                     ""action"": ""RightClickMove"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -532,6 +541,17 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": "";Keyboard&Mouse"",
                     ""action"": ""OpenBag"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c3fcdab7-915e-41b1-890d-d957c6c2bf0d"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""LeftClickActack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1130,6 +1150,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         m_Player_Sprint = m_Player.FindAction("Sprint", throwIfNotFound: true);
         m_Player_RightClickMove = m_Player.FindAction("RightClickMove", throwIfNotFound: true);
         m_Player_OpenBag = m_Player.FindAction("OpenBag", throwIfNotFound: true);
+        m_Player_LeftClickActack = m_Player.FindAction("LeftClickActack", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1220,6 +1241,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Sprint;
     private readonly InputAction m_Player_RightClickMove;
     private readonly InputAction m_Player_OpenBag;
+    private readonly InputAction m_Player_LeftClickActack;
     public struct PlayerActions
     {
         private @InputSystem_Actions m_Wrapper;
@@ -1235,6 +1257,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         public InputAction @Sprint => m_Wrapper.m_Player_Sprint;
         public InputAction @RightClickMove => m_Wrapper.m_Player_RightClickMove;
         public InputAction @OpenBag => m_Wrapper.m_Player_OpenBag;
+        public InputAction @LeftClickActack => m_Wrapper.m_Player_LeftClickActack;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1277,6 +1300,9 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @OpenBag.started += instance.OnOpenBag;
             @OpenBag.performed += instance.OnOpenBag;
             @OpenBag.canceled += instance.OnOpenBag;
+            @LeftClickActack.started += instance.OnLeftClickActack;
+            @LeftClickActack.performed += instance.OnLeftClickActack;
+            @LeftClickActack.canceled += instance.OnLeftClickActack;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -1314,6 +1340,9 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @OpenBag.started -= instance.OnOpenBag;
             @OpenBag.performed -= instance.OnOpenBag;
             @OpenBag.canceled -= instance.OnOpenBag;
+            @LeftClickActack.started -= instance.OnLeftClickActack;
+            @LeftClickActack.performed -= instance.OnLeftClickActack;
+            @LeftClickActack.canceled -= instance.OnLeftClickActack;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -1507,6 +1536,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         void OnSprint(InputAction.CallbackContext context);
         void OnRightClickMove(InputAction.CallbackContext context);
         void OnOpenBag(InputAction.CallbackContext context);
+        void OnLeftClickActack(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

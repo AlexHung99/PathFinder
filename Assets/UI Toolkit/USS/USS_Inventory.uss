@@ -117,3 +117,16 @@ Label {
     background-image: none;
 }
 
+@media (max-width: 500px) {
+    .item-slot {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+@media (min-width: 800px) {
+    .item-slot {
+        width: 40px;
+        height: 20px;
+    }
+}

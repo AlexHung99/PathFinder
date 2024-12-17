@@ -1,0 +1,99 @@
+﻿/* 背包根容器 */
+#backpack-root {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 背景層 */
+#background-layer-1, #background-layer-2 {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    z-index: 0;
+}
+
+#background-layer-1 {
+    background-image: url("background1.png");
+}
+
+#background-layer-2 {
+    background-image: url("background2.png");
+    width: 95%;
+    height: 95%;
+    z-index: 1;
+}
+
+/* 前景內容 */
+#content-container {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+/* 標題容器 */
+#title-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#title-image {
+    width: 40px;
+    height: 40px;
+    background-image: url("title-icon.png");
+    background-size: contain;
+}
+
+#title-text {
+    font-size: 24px;
+    color: white;
+    text-shadow: 2px 2px 2px black;
+}
+
+/* ScrollView 容器 */
+#scroll-container {
+    width: 90%;
+    height: 300px; /* 限制高度，出現滾動條 */
+    background-color: rgba(0, 0, 0, 0.5);
+    border: 2px solid #555555;
+    border-radius: 6px;
+    overflow: hidden; /* ScrollView 自動處理滾動 */
+}
+
+/* 格子容器 */
+#grid-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: flex-start;
+    padding: 10px;
+}
+
+/* Slot 格子 */
+.item-slot {
+    width: 60px;
+    height: 60px;
+    background-image: url("slot-background.png");
+    background-size: cover;
+    border: 2px solid #888888;
+    border-radius: 4px;
+}
+
+@media (max-width: 500px) {
+    .item-slot {
+        width: 45px;
+        height: 45px;
+    }
+}
+
+@media (min-width: 800px) {
+    .item-slot {
+        width: 70px;

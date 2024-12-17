@@ -1,9 +1,37 @@
-<?xml version="1.0" encoding="utf-8"?>
-<engine:UXML
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:engine="UnityEngine.UIElements"
-    xmlns:editor="UnityEditor.UIElements"
-    xsi:noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd"
->
-    
-</engine:UXML>
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="True">
+    <Style src="project://database/Assets/UI%20Toolkit/USS/bag.uss?fileID=7433441132597879392&amp;guid=2e528058b7c2d6a4d8dee68e5d41ff67&amp;type=3#bag" />
+    <ui:VisualElement name="backpack-root">
+        <ui:VisualElement name="background-layer-1" />
+        <ui:VisualElement name="background-layer-2" />
+        <ui:VisualElement name="content-container">
+            <ui:VisualElement name="title-container">
+                <ui:Image name="title-image" />
+                <ui:Label name="title-text" text="My Backpack" />
+            </ui:VisualElement>
+            <ui:ScrollView name="scroll-container" mode="Vertical">
+                <ui:VisualElement name="grid-container">
+                    <ui:VisualElement class="item-slot" />
+                    <ui:VisualElement class="item-slot" />
+                    <ui:VisualElement class="item-slot" />
+                    <ui:VisualElement class="item-slot" />
+                    <ui:VisualElement class="item-slot" />
+                    <ui:VisualElement class="item-slot" />
+                    <ui:VisualElement class="item-slot" />
+                    <ui:VisualElement class="item-slot" />
+                    <ui:VisualElement class="item-slot" />
+                    <ui:VisualElement class="item-slot" />
+                    <ui:VisualElement class="item-slot" />
+                    <ui:VisualElement class="item-slot" />
+                    <ui:VisualElement class="item-slot" />
+                    <ui:VisualElement class="item-slot" />
+                    <ui:VisualElement class="item-slot" />
+                    <ui:VisualElement class="item-slot" />
+                    <ui:VisualElement class="item-slot" />
+                    <ui:VisualElement class="item-slot" />
+                    <ui:VisualElement class="item-slot" />
+                    <ui:VisualElement class="item-slot" />
+                </ui:VisualElement>
+            </ui:ScrollView>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

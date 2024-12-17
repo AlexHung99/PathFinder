@@ -1,0 +1,66 @@
+﻿<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/CharacterInfoData.uss?fileID=7433441132597879392&amp;guid=bd3431a4a5a860a459c9b40809433f4a&amp;type=3#CharacterInfoData" />
+    <ui:VisualElement name="Background">
+        <ui:VisualElement name="LeftContainer">
+            <ui:VisualElement name="TopContainer" data-source="project://database/Assets/UI%20Toolkit/Data/CharacterInfo_.asset?fileID=11400000&amp;guid=e435c5b000f11d843ba19b9802c29bd0&amp;type=2#CharacterInfo_" style="width: 151px;">
+                <ui:Label tabindex="-1" text="Name: " parse-escape-sequences="true" display-tooltip-when-elided="true" name="Chr_Name" enable-rich-text="true" class="character-info-label" style="height: 18px;">
+                    <Bindings>
+                        <ui:DataBinding property="text" data-source-path="CharacterNameString" binding-mode="ToTarget" />
+                    </Bindings>
+                </ui:Label>
+                <ui:Label tabindex="-1" text="Level: " parse-escape-sequences="true" display-tooltip-when-elided="true" name="Chr_Level" enable-rich-text="true" class="character-info-label">
+                    <Bindings>
+                        <ui:DataBinding property="text" data-source-path="CharacterLevelString" binding-mode="ToTarget" />
+                    </Bindings>
+                </ui:Label>
+                <ui:Label tabindex="-1" text="HP: " parse-escape-sequences="true" display-tooltip-when-elided="true" name="Chr_HP" enable-rich-text="true" class="character-info-label">
+                    <Bindings>
+                        <ui:DataBinding property="text" data-source-path="CharacterHealthString" binding-mode="ToTarget" />
+                    </Bindings>
+                </ui:Label>
+                <HealthBar fill-percentage="47" style="border-top-left-radius: 2px; border-top-right-radius: 2px; border-bottom-right-radius: 2px; border-bottom-left-radius: 2px; border-top-width: 2px; border-right-width: 2px; border-bottom-width: 2px; border-left-width: 2px; align-items: stretch; justify-content: flex-start;">
+                    <Bindings>
+                        <ui:DataBinding property="FillPercentage" data-source-path="HealthPercentageInt" binding-mode="ToTarget" />
+                        <ui:DataBinding property="ForgroundColor" data-source-path="HealthBarColor" binding-mode="ToTarget" />
+                    </Bindings>
+                </HealthBar>
+                <ui:Label tabindex="-1" text="MP: " parse-escape-sequences="true" display-tooltip-when-elided="true" name="Chr_MP" enable-rich-text="true" class="character-info-label">
+                    <Bindings>
+                        <ui:DataBinding property="text" data-source-path="CharacterManaString" binding-mode="ToTarget" />
+                    </Bindings>
+                </ui:Label>
+                <ManaBar style="border-top-width: 2px; border-right-width: 2px; border-bottom-width: 2px; border-left-width: 2px;">
+                    <Bindings>
+                        <ui:DataBinding property="FillPercentage" data-source-path="ManaPercentageInt" binding-mode="ToTarget" />
+                    </Bindings>
+                </ManaBar>
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="SkillContainer" style="height: auto; max-height: 60px;">
+            <ui:VisualElement name="SkillSlot1" class="SkillSlot">
+                <ui:Label text="1" class="SkillSlotLabel" />
+            </ui:VisualElement>
+            <ui:VisualElement name="SkillSlot2" class="SkillSlot">
+                <ui:Label text="2" class="SkillSlotLabel" />
+            </ui:VisualElement>
+            <ui:VisualElement name="SkillSlot3" class="SkillSlot">
+                <ui:Label text="3" class="SkillSlotLabel" />
+            </ui:VisualElement>
+            <ui:VisualElement name="SkillSlot4" class="SkillSlot">
+                <ui:Label text="4" class="SkillSlotLabel" />
+            </ui:VisualElement>
+            <ui:VisualElement name="SkillSlot5" class="SkillSlot">
+                <ui:Label text="5" class="SkillSlotLabel" />
+            </ui:VisualElement>
+            <ui:VisualElement name="SkillSlot6" class="SkillSlot">
+                <ui:Label text="6" class="SkillSlotLabel" />
+            </ui:VisualElement>
+            <ui:VisualElement name="SkillSlot7" class="SkillSlot">
+                <ui:Label text="7" class="SkillSlotLabel" />
+            </ui:VisualElement>
+            <ui:VisualElement name="SkillSlot8" class="SkillSlot">
+                <ui:Label text="8" class="SkillSlotLabel" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

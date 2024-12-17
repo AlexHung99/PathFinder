@@ -1,0 +1,119 @@
+﻿.container {
+    flex-grow: 1;
+    width: auto;
+    height: auto;
+    max-width: none;
+    max-height: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    -unity-font-definition: url('/Assets/UI Toolkit/Font/TaipeiSansTCBeta-Regular.ttf');
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+    color: rgb(255, 197, 0);
+}
+
+.inventory { 
+    background-image: url('/Assets/UI Toolkit/Image/Toolbar/Inventory/UI_board_Large_stone.png');
+    width: 234px;
+    left: 0px;
+    padding: 10px;
+    align-items: flex-start;
+    justify-content: flex-start;
+    max-height: 330px;
+    flex-grow: 1;
+}
+
+.inventoryHeader {
+    position: absolute;
+    top: -10px;
+    left: 30px;
+    width: 174px;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
+    background-image: url('/Assets/UI Toolkit/Image/Toolbar/Inventory/IRONY_TITLE_Large.png');
+    -unity-slice-scale: 0.5;
+}
+
+Label {
+    font-size: 14px;
+}
+
+.inventoryFrame {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 214px;
+    height: 288px;
+    background-image: url('/Assets/UI Toolkit/Image/Toolbar/Inventory/UI_board_Large_parchment.png');
+    -unity-slice-scale: 0.5;
+}
+
+.slotsContainer {
+    flex-grow: 1;
+    padding-top: 30px;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-shrink: 0;
+}
+
+.slot {
+    width: 40px;
+    height: 40px;
+    margin: 4px;
+}
+
+.slotFrame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 40px;
+    border-width: 0;
+    background-image: url('/Assets/UI Toolkit/Image/Toolbar/Inventory/UI_board_slot_bg.png');
+    -unity-slice-scale: 0.8;
+}
+
+.slotIcon {
+    padding: 4px;
+    flex-shrink: 0;
+    flex-grow: 1;
+}
+
+.stackCount {
+    position: absolute;
+    color: white;
+    bottom: 0;
+    right: 0;
+    font-size: 16px;
+}
+
+
+
+.coins {
+    flex-grow: 1;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    top: -10;
+    left: 6;
+}
+
+.coinsIcon {
+    width: 20px;
+    height: 20px;
+    margin: 4px;
+    background-image: url('/Assets/UI Toolkit/Image/Toolbar/Coin/CoinGoldOld.png');
+}
+
+
+.ghostIcon {
+    visibility: hidden;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background-image: none;
+}
+

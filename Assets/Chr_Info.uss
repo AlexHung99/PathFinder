@@ -1,0 +1,59 @@
+/* 背景樣式 */
+#Background {
+    background-color: #2b2b2b;
+    padding: 10px;
+}
+
+/* 左側容器樣式 */
+#LeftContainer {
+    background-color: #3a3a3a;
+    border: 2px solid #8b6b1f;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+/* 上方容器樣式 */
+#TopContainer {
+    background-color: #4a4a4a;
+    border: 2px solid #8b6b1f;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+/* 標籤樣式 */
+ui|Label {
+    color: #d4af37;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* 技能容器樣式 */
+#SkillContainer {
+    background-color: #3a3a3a;
+    border: 2px solid #8b6b1f;
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 技能格子樣式 */
+#SkillContainer ui|VisualElement {
+    width: 25px;
+    height: 25px;
+    background-color: #8b6b1f;
+    border: 2px solid #d4af37;
+    border-radius: 5px;
+    margin: 2.5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 標籤樣式 - 黃色 */
+.Label.yellow {
+    color: #d4af37; /* 暗金色 */
+    font-size: 14px;
+    font-weight: bold;
+}

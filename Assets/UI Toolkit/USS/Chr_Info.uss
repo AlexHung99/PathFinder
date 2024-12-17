@@ -1,0 +1,76 @@
+/* CharacterInfoData.uss */
+
+#Background {
+    padding: 10px;
+    flex-grow: 1;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+#LeftContainer {
+    border: 2px solid rgb(139, 107, 31);
+    border-radius: 10px;
+    padding: 10px;
+    flex-grow: 1;
+    justify-content: space-between;
+    align-self: flex-start;
+    width: 237px;
+}
+
+#TopContainer {
+    border: 2px solid rgb(139, 107, 31);
+    border-radius: 10px;
+    padding: 10px;
+    flex-grow: 1;
+    width: 212px;
+    height: 251px;
+    padding-top: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+}
+
+#Chr_Name, #Chr_Level, #Chr_HP, #Chr_MP {
+    color: rgb(212, 175, 55);
+    font-size: 14px;
+    font-weight: bold;
+    -unity-text-align: upper-left;
+    width: 158px;
+    margin-top: 0;
+    margin-right: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+}
+
+#SkillContainer {
+    border: 2px solid rgb(139, 107, 31);
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    flex-direction: row;
+    width: 473px;
+}
+
+.SkillSlot {
+    width: 25px;
+    height: 25px;
+    background-color: rgb(139, 107, 31);
+    border: 2px solid rgb(212, 175, 55);
+    border-radius: 5px;
+    margin: 2.5px;
+}
+
+.SkillSlot > ui|Label {
+    position: absolute;
+    bottom: 2px;
+    left: 2px;
+    color: white;
+    font-size: 10px;
+}

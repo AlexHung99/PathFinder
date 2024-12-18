@@ -118,9 +118,9 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private static Ray GetMouseRay()
+    private  Ray GetMouseRay()
     {
-        return Camera.main.ScreenPointToRay(Input.mousePosition);
+        return mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
     }
 
     public void OnJump(InputAction.CallbackContext context)
